@@ -5,10 +5,10 @@ template <typename T>
 class BST {
  private:
   struct Node {
-      T data;
-      int count;
-      Node* left;
-      Node* right;
+    T data;
+    int count;
+    Node* left;
+    Node* right;
   };
   Node* root;
   Node* addNode(Node* root, T data) {
@@ -18,8 +18,7 @@ class BST {
       root->count = 1;
       root->left = nullptr;
       root->right = nullptr;
-    }
-    else if (root->data > data)
+    } else if (root->data > data)
       root->left = addNode(root->left, data);
     else if (root->data < data)
       root->right = addNode(root->right, data);
@@ -49,6 +48,7 @@ class BST {
       delete node;
     }
   }
+
  public:
   BST() : root(nullptr) {}
   ~BST() {
