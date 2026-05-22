@@ -18,11 +18,11 @@ class BST {
       root->count = 1;
       root->left = nullptr;
       root->right = nullptr;
-    } else if (root->data > data)
+    } else if (root->data > data) {
       root->left = addNode(root->left, data);
-    else if (root->data < data)
+    } else if (root->data < data) {
       root->right = addNode(root->right, data);
-    else root->count++;
+    } else root->count++;
     return root;
   }
   int searchTree(Node* root, T data) {
