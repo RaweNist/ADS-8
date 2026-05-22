@@ -3,6 +3,7 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
+#include <string>
 #include  "bst.h"
 
 void makeTree(BST<std::string>& tree, const char* filename) {
@@ -11,8 +12,7 @@ void makeTree(BST<std::string>& tree, const char* filename) {
     std::cout << "File error!" << std::endl;
     return;
   }
-  while (!file.eof())
-  {
+  while (!file.eof()) {
     std::string word = "";
     char ch = file.get();
     while (('A' <= ch && ch <= 'Z') || ('a' <= ch && ch <= 'z')) {
