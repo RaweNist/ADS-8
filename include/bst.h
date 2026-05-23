@@ -43,6 +43,17 @@ class BST {
       return a + 1;
     else return b + 1;
   }
+  int countNodes(Node* root) {
+    if (root == nullptr)
+      return 0;
+    else return countNodes(root->left) + countNodes(root->right) + 1;
+  }
+  void getTree(Node* root, std::vector<std::string>& arr) {
+    if (root == nullptr) return;
+    arr.push_back(root->data);
+    getTree(root->left, arr);
+    getTree(root->right, arr);
+  }
   void deleteTree(Node* node) {
     if (node) {
       deleteTree(node->left);
@@ -65,10 +76,17 @@ class BST {
   int depth() {
     return countHeight(root) - 1;
   }
-  int countNodes(Node* root) {
-    if (root == nullptr)
-      return 0;
-    else return countNodes(root->left) + countNodes(root->right) + 1;
+  int count() {
+    return countNodes(root);
+  }
+  std::string* get() {
+    std::vector<std::string> v;
+    getTree(root, v);
+    std::string* tree = new std::string[v.size()];
+    for (int i = 0; i < v.size(); ++i) {
+      tree[i] = v[i];
+    }
+    return tree;
   }
 };
 #endif  // INCLUDE_BST_H_
